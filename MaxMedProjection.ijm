@@ -1,5 +1,6 @@
 run("Images to Stack", "name=Stack title=[] use");
 run("Z Project...", "start=1 stop=12 projection=[Max Intensity]");
+selectWindow("Stack");
 run("Z Project...", "start=1 stop=12 projection=Median");
 imageCalculator("Difference create", "MAX_Stack","MED_Stack");
 
@@ -14,6 +15,9 @@ selectWindow("Result of MAX_Stack");
 selectWindow("Stack");
 close();
 selectWindow("Result of MAX_Stack");
+
+// save the file here
+waitForUser("Save"); 
 
 run("Gaussian Blur...", "sigma=1");
 
